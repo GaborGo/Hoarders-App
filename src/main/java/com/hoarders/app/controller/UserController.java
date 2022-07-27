@@ -1,10 +1,14 @@
 package com.hoarders.app.controller;
 
+import com.hoarders.app.model.dto.UserDto;
 import com.hoarders.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("users")
 public class UserController {
 
     private UserService userService;
@@ -14,5 +18,9 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping(value = "/{id}")
+    public @ResponseBody UserDto getUser(@PathVariable String id) {
+        return userService.findById(id);
+    }
 
 }
