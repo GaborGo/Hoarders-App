@@ -21,6 +21,10 @@ public class UserController {
         return userService.findById(id);
     }
 
+    @GetMapping(value = "/{id}/reviews")
+    public @ResponseBody UserDto getUserReviews(@PathVariable String id) {
+        return userService.findById(id);
+    }
     @PostMapping
     public @ResponseBody UserDto createUser(@RequestBody UserDto user){
         return userService.createUser(user);
