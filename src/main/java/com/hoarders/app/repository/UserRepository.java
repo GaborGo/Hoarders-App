@@ -6,11 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
-//
-//    @Override
-//    <S extends User> S save(S entity){
-//
-//        save(entity);
-//        return entity;
-//    };
+    boolean existsByUsername(String username);
+
 }
